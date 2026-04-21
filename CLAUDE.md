@@ -40,6 +40,52 @@ single brief note is fine ("Processed 2 scratchpad items → FUTURE_FEATURES.md"
 [Which existing modes/features this connects to — Notes, Todos, Habits, Calendar, Projects, Sync]
 ```
 
+## GitHub Project — Kanban Management
+
+Project number: **3**, owner: **ChaseCondon**
+Project URL: https://github.com/users/ChaseCondon/projects/3
+
+Move issues through the kanban automatically as work progresses. Do this silently — no need to narrate it.
+
+| Status | When |
+|--------|------|
+| **Todo** | Issue exists, no work started |
+| **In Refinement** | Actively planning or designing |
+| **Developing** | Code is being written |
+| **Testing** | Implemented, verifying behaviour |
+| **Blocked** | Stalled on external dependency or decision |
+| **Staged** | Deployed to staging, pending production |
+| **Released** | Merged to main, deployed to production |
+| **Dropped** | Won't implement |
+
+### Moving an issue
+
+```bash
+# 1. Get the project item ID for an issue number
+ITEM_ID=$(gh project item-list 3 --owner ChaseCondon --format json \
+  | jq -r '.items[] | select(.content.number == ISSUE_NUMBER) | .id')
+
+# 2. Set the status
+gh project item-edit \
+  --id "$ITEM_ID" \
+  --field-id PVTSSF_lAHOANchwc4BVRzgzhQusxY \
+  --single-select-option-id OPTION_ID \
+  --project-id PVT_kwHOANchwc4BVRzg
+```
+
+**Status option IDs:**
+- Todo: `f75ad846`
+- In Refinement: `47fc9ee4`
+- Developing: `96b788c9`
+- Testing: `364fe249`
+- Blocked: `6bdc940a`
+- Staged: `004beabb`
+- Released: `98236657`
+- Dropped: `c2836a5c`
+
+**Phase field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQutno`
+**Priority field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQutog`
+
 ## General Behaviour
 
 - Package ID is `dev.chasecondon.lifeadmin` — never suggest changing it

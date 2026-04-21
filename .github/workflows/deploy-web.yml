@@ -2,9 +2,9 @@ name: Deploy Web
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 concurrency:
   group: deploy-${{ github.ref }}
@@ -14,10 +14,11 @@ jobs:
   deploy:
     name: Build & Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
     permissions:
       contents: read
       deployments: write
-      pull-requests: write   # allows posting preview URL as PR comment
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -49,7 +50,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: lifeadmin
+          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
           directory: composeApp/build/dist/wasmJs/productionExecutable
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # gitHubToken enables automatic PR preview URL comments
