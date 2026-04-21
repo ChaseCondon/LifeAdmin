@@ -85,6 +85,7 @@ gh project item-edit \
 
 **Phase field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQutno`
 **Priority field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQutog`
+**Platform field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQv1wM` (Global: `22d97abd`, Android: `0492952c`, iOS: `72f6f294`, Web: `88ce8769`, Desktop: `937e46d3`)
 
 ## General Behaviour
 
