@@ -87,6 +87,34 @@ gh project item-edit \
 **Priority field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQutog`
 **Platform field ID:** `PVTSSF_lAHOANchwc4BVRzgzhQv1wM` (Global: `22d97abd`, Android: `0492952c`, iOS: `72f6f294`, Web: `88ce8769`, Desktop: `937e46d3`)
 
+## Tools Available
+
+### Supabase MCP (`supabase-staging`, `supabase-production`)
+Two MCP servers are configured — prefer **`supabase-staging`** for all development work. Use `supabase-production` (read-only) only when you need to inspect live data.
+
+With these servers you can: inspect schema, run queries, check RLS policies, verify migrations landed correctly.
+
+Default to staging. Never write to production via MCP.
+
+### Supabase CLI
+Use for migrations and schema management:
+```bash
+supabase db diff --schema public          # diff local schema vs remote
+supabase db push                          # push migrations to staging
+supabase migration new <name>             # create a new migration file
+```
+Link a project: `supabase link --project-ref lmcyvcwmyxmqzivycqyt` (staging)
+
+### Wrangler (Cloudflare CLI)
+Use for Pages management and troubleshooting deployments:
+```bash
+wrangler pages deployment list --project-name lifeadmin
+wrangler pages deployment list --project-name lifeadmin-staging
+```
+
+### GitHub CLI (`gh`)
+Already configured globally. Use for all repo, issue, PR, secret, and project operations.
+
 ## General Behaviour
 
 - Package ID is `dev.chasecondon.lifeadmin` — never suggest changing it
