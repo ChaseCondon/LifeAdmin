@@ -27,12 +27,24 @@
     },
     "vscode": {
       "extensions": [
+        "anthropic.claude-code",
         "mathiasfrohlich.Kotlin",
         "fwcd.kotlin",
-        "GitHub.vscode-pull-request-github"
+        "GitHub.vscode-pull-request-github",
+        "GitHub.vscode-github-actions",
+        "GitHub.copilot-chat",
+        "eamodio.gitlens",
+        "supabase.vscode-supabase-extension",
+        "pkief.material-icon-theme",
+        "tal7aouy.rainbow-bracket",
+        "davidanson.vscode-markdownlint",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode"
       ],
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.bracketPairColorization.enabled": true
       }
     }
   },
