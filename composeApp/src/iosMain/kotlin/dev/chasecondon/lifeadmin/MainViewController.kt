@@ -1,0 +1,5 @@
+package dev.chasecondon.lifeadmin
+
+import androidx.compose.ui.window.ComposeUIViewController
+
+fun MainViewController() = ComposeUIViewController { App() }

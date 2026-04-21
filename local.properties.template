@@ -1,0 +1,10 @@
+## Template for local.properties — copy this file to local.properties and fill in values.
+## local.properties is gitignored and must never be committed.
+
+# Android SDK location — set automatically by Android Studio/IntelliJ
+sdk.dir=
+
+# Supabase project credentials
+# Get these from: https://supabase.com/dashboard/project/_/settings/api
+supabase.url=https://xxxx.supabase.co
+supabase.anon.key=eyJ...
