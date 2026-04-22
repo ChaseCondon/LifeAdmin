@@ -39,12 +39,16 @@
         "tal7aouy.rainbow-bracket",
         "davidanson.vscode-markdownlint",
         "christian-kohler.path-intellisense",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "vscjava.vscode-gradle"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",
         "editor.formatOnSave": true,
-        "editor.bracketPairColorization.enabled": true
+        "editor.bracketPairColorization.enabled": true,
+        "workbench.iconTheme": "material-icon-theme"
       }
     }
   },
